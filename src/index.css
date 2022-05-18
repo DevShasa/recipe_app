@@ -14,3 +14,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.App{
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+h4, h3, a{
+  color: rgb(88, 88, 88);
+}
+h4{
+  font-size: 1rem;
+}
+h3{
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  margin: 2rem 0rem;
+}
