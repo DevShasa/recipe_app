@@ -15,7 +15,7 @@ function Veggie() {
           })
   },[])
 
-  return (
+return (
     <Wrapper>
         <h3>Vegetarian Picks</h3>
         <Splide
@@ -39,7 +39,7 @@ function Veggie() {
             )}
         </Splide>
     </Wrapper>
-  )
+)
 }
 
 export default Veggie

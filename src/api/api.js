@@ -33,3 +33,20 @@ export const getPopularVegetarian = async()=>{
         }
     }
 }
+
+export const getCuisine = async(cuisine)=>{
+    
+    const checkCuisine = localStorage.getItem(`${cuisine}`)
+    if(checkCuisine){
+        return JSON.parse(checkCuisine)
+    }else{
+        try{
+            const response = await fetch(`${BASE_URL}/recipes/complexSearch?apiKey=${process.env.REACT_APP_APIKEY}&cuisine=${cuisine}`)
+            const data = await response.json();
+            localStorage.setItem(`${cuisine}`, JSON.stringify(data.results))
+            return data.results
+        }catch(err){
+            console.log(err)
+        }
+    } 
+}
