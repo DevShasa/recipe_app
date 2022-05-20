@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {motion} from "framer-motion";
 import {Link, useParams} from 'react-router-dom';
 import { getCuisine } from "../api/api";
+import Loader from "../components/Loader";
 
 function Cuisine() {
 
@@ -17,16 +18,20 @@ function Cuisine() {
     },[type])
 
     return (
-        <Grid>
-            {cuisine.map((item)=>(
-                <Card key={item.id} to={`/recepie/${item.id}`}>
-                    <img src={item.image} alt={item.title}/>
-                    <h4>
-                        {item.title}
-                    </h4>
-                </Card>
-            ))}
-        </Grid>
+        <>
+            {cuisine.length === 0 ? <Loader /> :(
+                <Grid>
+                    {cuisine.map((item)=>(
+                        <Card key={item.id} to={`/recepie/${item.id}`}>
+                            <img src={item.image} alt={item.title}/>
+                            <h4>
+                                {item.title}
+                            </h4>
+                        </Card>
+                    ))}
+                </Grid>
+            )}
+        </>
     )
 }
 

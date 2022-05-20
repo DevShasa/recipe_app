@@ -23,8 +23,8 @@ function SearchResults() {
                 : (
                     <Grid>
                         {searchResults.map((item)=>(
-                            <Link to={`/recepie/${item.id}`}>
-                                <Card key={item.id}>
+                            <Link to={`/recepie/${item.id}`} key={item.id}>
+                                <Card >
                                     <img src={item.image} alt={item.title}/>
                                     <h4>
                                         {item.title}
