@@ -50,3 +50,20 @@ export const getCuisine = async(cuisine)=>{
         }
     } 
 }
+
+export const getSearched = async(searchTerm)=>{
+    
+    const checkSearch = localStorage.getItem(`${searchTerm}`)
+    if(checkSearch){
+        return JSON.parse(checkSearch)
+    }else{
+        try{
+            const response = await fetch(`${BASE_URL}/recipes/complexSearch?apiKey=${process.env.REACT_APP_APIKEY}&query=${searchTerm}`)
+            const data = await response.json();
+            localStorage.setItem(`${searchTerm}`, JSON.stringify(data.results))
+            return data.results
+        }catch(err){
+            console.log(err)
+        }
+    } 
+}

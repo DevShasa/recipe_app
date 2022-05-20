@@ -19,7 +19,7 @@ function Cuisine() {
     return (
         <Grid>
             {cuisine.map((item)=>(
-                <Card key={item.id}>
+                <Card key={item.id} to={`/recepie/${item.id}`}>
                     <img src={item.image} alt={item.title}/>
                     <h4>
                         {item.title}
@@ -35,17 +35,15 @@ export default Cuisine
 const Grid = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-    grid-gap: 3rem;
+    gap: 3rem;
 `;
 
-const Card = styled.div`
+const Card = styled(Link)`
     img{
         width: 100%;
         border-radius: 2rem;
     }
-    a{
-        text-decoration: none;
-    }
+    text-decoration: none;
     h4{
         padding: 1rem;
         text-align:center;

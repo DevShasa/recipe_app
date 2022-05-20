@@ -44,7 +44,8 @@ const StyledLink = styled(NavLink)`
     height:6rem;
     transform: scale(0.8);
 
-    /* add a .active css class to the element */
+    /* add a .active css class to the element...
+    Which navlink will apply to active links */
     &.active{
         background: linear-gradient(to right, #f27121, #e94057)
     }

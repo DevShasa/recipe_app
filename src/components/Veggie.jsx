@@ -3,17 +3,18 @@ import { getPopularVegetarian } from "../api/api";
 import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide"
 import '@splidejs/react-splide/css';
+import { Link } from "react-router-dom";
 
 function Veggie() {
   const [items, setItems] = useState([])
 
   useEffect(()=>{
-    getPopularVegetarian()
-          .then((data)=>{
-              console.log(data)
-              setItems(data)
-          })
-  },[])
+        getPopularVegetarian()
+            .then((data)=>{
+                console.log(data)
+                setItems(data)
+            })
+    },[])
 
 return (
     <Wrapper>
@@ -29,11 +30,13 @@ return (
             {Array.isArray(items) && items.length > 0 && (
                 items.map(item=>(
                     <SplideSlide key={item.id}>
-                        <Card >
-                            <p>{item.title}</p>
-                            <img src={item.image} alt={item.title}></img>
-                            <Gradient />
-                        </Card>
+                        <Link  to={`/recepie/${item.id}`}>
+                            <Card >
+                                <p>{item.title}</p>
+                                <img src={item.image} alt={item.title}></img>
+                                <Gradient />
+                            </Card>
+                        </Link>
                     </SplideSlide>    
                 ))    
             )}
