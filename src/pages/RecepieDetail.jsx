@@ -131,5 +131,5 @@ const Instructions = styled.div`
 const RecepieImage = styled.div`
     height: fit-content;
     position: sticky;
-    top: 0;
+    top: 4.5rem;
 `;
