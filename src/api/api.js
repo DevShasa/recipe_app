@@ -67,3 +67,19 @@ export const getSearched = async(searchTerm)=>{
         }
     } 
 }
+
+export const getRecipeByid = async(id)=>{
+    const checkId = localStorage.getItem(`${id}`)
+    if(checkId){
+        return JSON.parse(checkId)
+    }else{
+        try{
+            const response = await fetch(`${BASE_URL}/recipes/${id}/information?apiKey=${process.env.REACT_APP_APIKEY}`)
+            const data = await response.json()
+            localStorage.setItem(`${id}`, JSON.stringify(data))
+            return data
+        }catch(err){
+            console.log(err)
+        }
+    }
+}

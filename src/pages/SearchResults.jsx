@@ -2,7 +2,7 @@ import React, { useState, useEffect} from 'react'
 import { useParams, Link } from "react-router-dom";
 import { getSearched } from "../api/api";
 import styled from "styled-components";
-
+import Loader from "../components/Loader";
 
 function SearchResults() {
 
@@ -19,7 +19,7 @@ function SearchResults() {
     return (
         <div>
             {searchResults.length === 0
-                ? <p>Loading</p>
+                ? <Loader />
                 : (
                     <Grid>
                         {searchResults.map((item)=>(
