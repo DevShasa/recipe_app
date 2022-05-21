@@ -7,7 +7,7 @@ A recipe app built with
 - Framer motion 
 - React Icons
 
-Live site: 
+Live site: https://shasarecipe.netlify.app/
 
 Screenshot
 ![recipe site screenshot](deliciois.png)
