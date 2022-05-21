@@ -53,7 +53,7 @@ function RecepieDetail() {
                                     <p dangerouslySetInnerHTML={{ __html: detail.recepie.summary}} />
                                     <h4>Instructions</h4>
                                     <ul>
-                                        {detail.recepie.analyzedInstructions[0].steps.map((item)=>(
+                                        {detail.recepie.analyzedInstructions[0]?.steps.map((item)=>(
                                             <li key={item.number}>{item.step}</li>
                                         ))}
                                     </ul>
