@@ -11,7 +11,6 @@ function Veggie() {
   useEffect(()=>{
         getPopularVegetarian()
             .then((data)=>{
-                console.log(data)
                 setItems(data)
             })
     },[])
